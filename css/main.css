@@ -1,3 +1,26 @@
+/* all variables are defined in the :root */
+:root {
+  /* all variables start with ttow dashed -- */
+  --side: 25px;
+  --primary-bg: darkgray;
+  /* --secodnary-bg:  */
+  /* --font-base: */
+}
+
 body {
-  background-color: darkgray;
+  background-color: var(--primary-bg);
+}
+
+.square {
+  /* var function lets us use a varaibvle */
+  height: var(--side);
+  width: var(--side);
+  border: 1px solid black;
+  border-radius: 10px;
+  display: inline-block;
+  /* rgb(red, green, blue) */
+  /* rgb(red, green, blue, alpha) */
+  /* #FF69B4: hexadecimals  */
+  
+  background-color: rgba(25, 89, 0, .1);
 }

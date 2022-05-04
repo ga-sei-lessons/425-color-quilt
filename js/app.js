@@ -17,11 +17,42 @@ const changeH2 = () => {
   document.querySelector('h2').innerText = 'my text got changed!'
 }
 
+// makes a random rgb value for us
+const randomRGB = () => {
+  // Math.random() -- returns 'semi-random' between 0 and 1
+  // multiplying Math.random() * high value of the range
+  // Math.floor -- rounds down
+  // Math.ceil -- rounds up
+  // Math.round -- does normal rouding (pivots at .5)
+  // console.log('our random number is:',  Math.floor(Math.random() * 256))
+  const red =  Math.floor(Math.random() * 256)
+  const green =  Math.floor(Math.random() * 256)
+  const blue =  Math.floor(Math.random() * 256)
+  const rgbString = `rgb(${red},${green},${blue})`
+  // const rgbString = 'rgb(' + red + ',' + green + ',' + blue + ')'
+  // console.log('our random string:', rgbString)
+  return rgbString
+}
+
+randomRGB() // just for testers
+
+const generateQuilt = numberOfSquares => {
+  // addding many divs to the DOM
+  for (let i = 0; i < numberOfSquares; i++) {
+    // create a new div
+    const square = document.createElement('div')
+    // add a css class to the div to give it some color
+    square.classList.add('square')
+    // add a one off style of background color of random color
+    square.style.backgroundColor = randomRGB()
+    square.innerText = i
+    // append the div to the body
+    document.querySelector('body').append(square)
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   addH2()
   changeH2()
-  // addding 1000 divs to the DOM
-  for (let i = 0; i < 1000; i++) {
-    console.log(i)
-  }
+  generateQuilt(1000)
 })
