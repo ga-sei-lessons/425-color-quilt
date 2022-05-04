@@ -45,7 +45,7 @@ const generateQuilt = numberOfSquares => {
     square.classList.add('square')
     // add a one off style of background color of random color
     square.style.backgroundColor = randomRGB()
-    square.innerText = i
+    // square.innerText = i
     // append the div to the body
     document.querySelector('#quilt-div').append(square)
   }
@@ -65,12 +65,16 @@ const clearQuilt = () => {
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#clear-button').addEventListener('click', clearQuilt)
   document.querySelector('#new-button').addEventListener('click', () => {
+    const input = document.querySelector('#square-count')
+    console.log('input val:', input.value)
     // clear out the quilt
     clearQuilt()
     // generate new quilt
-    generateQuilt(1000)
+    // parseInt(input.value)
+    // Number(input.value)
+    generateQuilt(Number(input.value))
   })
   addH2()
   changeH2()
-  generateQuilt(1000)
+  // generateQuilt(1000)
 })
