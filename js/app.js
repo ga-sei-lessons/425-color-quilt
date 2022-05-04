@@ -47,11 +47,29 @@ const generateQuilt = numberOfSquares => {
     square.style.backgroundColor = randomRGB()
     square.innerText = i
     // append the div to the body
-    document.querySelector('body').append(square)
+    document.querySelector('#quilt-div').append(square)
+  }
+}
+
+// clear the quilt
+const clearQuilt = () => {
+  console.log('the button was clicked!')
+  // check if there is a child node of the the quilt div
+  const quiltDiv = document.querySelector('#quilt-div')
+  while (quiltDiv.firstChild) {
+    // if there is a child node -- remove it
+    quiltDiv.removeChild(quiltDiv.firstChild)
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('#clear-button').addEventListener('click', clearQuilt)
+  document.querySelector('#new-button').addEventListener('click', () => {
+    // clear out the quilt
+    clearQuilt()
+    // generate new quilt
+    generateQuilt(1000)
+  })
   addH2()
   changeH2()
   generateQuilt(1000)
